@@ -12,5 +12,10 @@ public class PaymentController {
 	public String index() {
 		return "payments/index";
 	}
+	
+	@GetMapping("success")
+	public String success() {
+		return "redirect:/";
+	}
 
 }
