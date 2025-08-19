@@ -8,5 +8,7 @@
 </head>
 <body>
 	<h1>Index</h1>
+	
+	<a href="/payment">결제</a>
 </body>
 </html>
