@@ -1,7 +1,7 @@
-CREATE TABLE `author` (
-	`author_id`	INT	NOT NULL	PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE `member_author` (
+	`member_author_id`	BIGINT	NOT NULL	PRIMARY KEY AUTO_INCREMENT,
 	`member_id`	BIGINT	NOT NULL,
-	`author_name`	VARCHAR(50)	NOT NULL
+	`author_id`	INT	NOT NULL
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -74,11 +74,25 @@ CREATE TABLE `donation` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
-ALTER TABLE `author` ADD CONSTRAINT `FK_member_TO_author_1` FOREIGN KEY (
+CREATE TABLE `author` (
+	`author_id`	INT	NOT NULL	PRIMARY KEY AUTO_INCREMENT,
+	`author_name`	VARCHAR(50)	NOT NULL
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+ALTER TABLE `member_author` ADD CONSTRAINT `FK_member_TO_member_author_1` FOREIGN KEY (
 	`member_id`
 )
 REFERENCES `member` (
 	`member_id`
+);
+
+ALTER TABLE `member_author` ADD CONSTRAINT `FK_author_TO_member_author_1` FOREIGN KEY (
+	`author_id`
+)
+REFERENCES `author` (
+	`author_id`
 );
 
 ALTER TABLE `pet_img` ADD CONSTRAINT `FK_pet_TO_pet_img_1` FOREIGN KEY (
@@ -122,4 +136,3 @@ ALTER TABLE `donation` ADD CONSTRAINT `FK_pet_TO_donation_1` FOREIGN KEY (
 REFERENCES `pet` (
 	`pet_id`
 );
-
