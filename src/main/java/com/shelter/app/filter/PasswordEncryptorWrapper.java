@@ -15,17 +15,21 @@ public class PasswordEncryptorWrapper extends HttpServletRequestWrapper {
 	@Override
 	public String getParameter(String name) {
 		String result = super.getParameter(name);
-		result = getSHA512(result);
+		if(name.contains("password")) {
+			result = getSHA256(result);			
+		}
+		
+		System.out.println("[PasswordEncryptorWrapper] result: " + result);
 		
 		return result;
 	}
 	
 	// 단방향 암호화 메소드
-	private String getSHA512(String oriVal) {
+	private String getSHA256(String oriVal) {
 		// 1. Java에서 제공하는 암호화 처리 클래스 객체화
 		MessageDigest md = null;
 		try {
-			md = MessageDigest.getInstance("SHA-512");
+			md = MessageDigest.getInstance("SHA-256");
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}

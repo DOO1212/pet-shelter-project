@@ -10,6 +10,7 @@
 		<result column="username" property="username"/>
 		<result column="password" property="password"/>
 		<result column="name" property="name"/>
+		<result column="gender" property="gender"/>
 		<result column="age" property="age"/>
 		<result column="email" property="email"/>
 		<result column="phone" property="phone"/>
@@ -30,7 +31,30 @@
 			  AND m.password = #{password};
   	</select>
   	
-  	<insert id="join" parameterType="MemberVO">
-  		
+  	<insert id="insertMember" parameterType="MemberVO" useGeneratedKeys="true" keyProperty="memberId">
+  		INSERT INTO member (username, password, name, gender, age, email, phone, has_pet)
+		VALUES (
+		#{username}
+		,#{password}
+		,#{name}
+		,#{gender}
+		,#{age}
+		,#{email}
+		,#{phone}
+		,
+		<choose>
+			<when test="hasPet == null || hasPet == 0">
+				0
+			</when>
+			<otherwise>
+				1
+			</otherwise>
+		</choose>
+		)
+  	</insert>
+  	
+  	<insert id="insertRole" parameterType="RoleVO">
+	INSERT INTO member_author (member_id, author_id)
+	VALUES (#{memberId}, #{authorId})
   	</insert>
   </mapper>

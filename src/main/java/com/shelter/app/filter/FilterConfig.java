@@ -15,7 +15,6 @@ public class FilterConfig implements WebMvcConfigurer{
 		
 		fr.setFilter(new EncryptorFiltor());
 		fr.addUrlPatterns("/**"); // 여기서 url 지정 가능
-		fr.setOrder(1);
 		
 		return fr;
 	}
