@@ -5,7 +5,7 @@
 <div class="main-navigation fixed-top site-header" id="mainmenu-area">
 	<nav class="navbar navbar-expand-lg ">
 		<div class="container align-items-center">
-			<a class="navbar-brand" href="index.html">
+			<a class="navbar-brand" href="/">
 				<h2 class="mb-0">희망보호소</h2>
 			</a>
 			<!-- Toggler -->
@@ -27,7 +27,7 @@
 						<a href="#about" class="nav-link smoth-scroll"> 소개 </a>
 					</li>
 					<li class="nav-item ">
-						<a href="/donation/list" class="nav-link smoth-scroll"> 후원하기 </a>
+						<a href="/pet/list" class="nav-link smoth-scroll"> 후원하기 </a>
 					</li>
 					<li class="nav-item ">
 						<a href="/ask/list" class="nav-link smoth-scroll"> 문의 </a>
