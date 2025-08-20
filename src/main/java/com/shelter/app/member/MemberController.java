@@ -111,4 +111,24 @@ public class MemberController {
 
 		return "common/result";
 	}
+	
+	@PostMapping("delete")
+	public String delete(HttpSession session, Model model) throws Exception {
+		// 서비스 호출
+		int result = memberService.delete((MemberVO)session.getAttribute("member"));
+		
+		String msg = "회원탈퇴 중 문제가 발생했습니다. 다시 시도해주세요.";
+		String url = "./detail";
+		if (result > 0) {
+			msg = "회원탈퇴가 완료되었습니다.";
+			url = "/";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		session.invalidate();
+
+		return "common/result";
+	}
 }

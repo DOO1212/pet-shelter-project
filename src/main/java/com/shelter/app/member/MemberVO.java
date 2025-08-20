@@ -19,6 +19,7 @@ public class MemberVO {
 	private String email;
 	private String phone;
 	private boolean hasPet;
+	private boolean accountNonExpired;
 	
 	private List<RoleVO> roleVOs;
 }
