@@ -1,0 +1,15 @@
+package com.shelter.app.commons;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class FileVO {
+	
+	private String oriName;
+	private String savedName;
+
+}
