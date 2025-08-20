@@ -27,30 +27,30 @@ public class PetController {
 		model.addAttribute("detail", petService.detail(petVO));
 	}
 	
-//	@GetMapping("add")
-//	public String add() throws Exception {
-//		
-//		return "pet/pet_form";
-//	}
-	
-//	@PostMapping("add")
-//	public ModelAndView add(PetVO petVO, Model model) throws Exception {
-//		
-//		int result = petService.insert(petVO);
-//		
-//		String msg = "등록 실패";
-//		if (result > 0) {
-//			msg = "등록 성공";
-//		}
+	@GetMapping("add")
+	public String add() throws Exception {
 		
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("msg", msg);
-//		mv.addObject("url", "./list");
-//		
-//		mv.setViewName("commons/result");
-//		
-//		return mv;
-//	}
+		return "pet/pet_form";
+	}
+	
+	@PostMapping("add")
+	public ModelAndView add(PetVO petVO, Model model) throws Exception {
+		
+		int result = petService.insert(petVO);
+		
+		String msg = "등록 실패";
+		if (result > 0) {
+			msg = "등록 성공";
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("msg", msg);
+		mv.addObject("url", "./list");
+		
+		mv.setViewName("commons/result");
+		
+		return mv;
+	}
 	
 //	@GetMapping("update")
 //	public ModelAndView update(PetVO petVO, ModelAndView mv) throws Exception {
