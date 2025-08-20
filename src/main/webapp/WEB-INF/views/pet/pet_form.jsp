@@ -32,18 +32,18 @@
 								aria-describedby="writerHelp" value="${detail.breed}">
 						</div>
 
-						<div>
-							<label for="gender" class="form-label">성별</label> <input
-								type="text" class="form-control" name="gender" id="gender"
-								aria-describedby="writerHelp" value="${detail.gender}">
-						</div>
+						<label for="gender" class="form-label">상품종류</label> <select
+							class="form-control form-select" name="gender">
+							<option value="1" ${vo.kindNum eq '1'?'selected':''}>남자</option>
+							<option value="2" ${vo.kindNum eq '2'?'selected':''}>여자</option>
+						</select>
 
-						<div>
-							<label for="isNeutered" class="form-label">중성화여부</label> <input
-								type="number" class="form-control" name="isNeutered"
-								id="isNeutered" aria-describedby="writerHelp"
-								value="${detail.isNeutered}">
-						</div>
+
+						<label for="isNeutered" class="form-label">중성화여부</label> <select
+							class="form-control form-select" name="isNeutered">
+							<option value="1" ${vo.kindNum eq '1'?'selected':''}>중성화완료</option>
+							<option value="2" ${vo.kindNum eq '2'?'selected':''}>미중성화</option>
+						</select>
 
 						<div>
 							<label for="age" class="form-label">나이</label> <input
@@ -63,18 +63,17 @@
 								aria-describedby="writerHelp" value="${detail.feature}">
 						</div>
 
-						<div>
-							<label for="vaccination" class="form-label">접종상태</label> <input
-								type="text" class="form-control" name="vaccination"
-								id="vaccination" aria-describedby="writerHelp"
-								value="${detail.vaccination}">
-						</div>
+						<label for="vaccination" class="form-label">접종여부</label> <select
+							class="form-control form-select" name="vaccination">
+							<option value="1" ${vo.kindNum eq '1'?'selected':''}>접종완료</option>
+							<option value="2" ${vo.kindNum eq '2'?'selected':''}>미접종</option>
+						</select>
 
-						<div>
-							<label for="isAdopted" class="form-label">입양여부</label> <input
-								type="number" class="form-control" name="isAdopted" id="isAdopted"
-								aria-describedby="writerHelp" value="${detail.isAdopted}">
-						</div>
+						<label for="isAdopted" class="form-label">입양여부</label> <select
+							class="form-control form-select" name="isAdopted">
+							<option value="1" ${vo.kindNum eq '1'?'selected':''}>입양완료</option>
+							<option value="2" ${vo.kindNum eq '2'?'selected':''}>입양대기</option>
+						</select>
 
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
