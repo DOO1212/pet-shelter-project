@@ -10,11 +10,15 @@
 	<c:import url="/WEB-INF/views/include/head.jsp"/>
 </head>
 <body id="top-header">
-	<c:import url="/WEB-INF/views/include/topbar_index.jsp"/>
+	<c:import url="/WEB-INF/views/include/topbar_others.jsp"/>
 	
-	<!-- Contents 시작 -->
-	<c:import url="/WEB-INF/views/include/main.jsp"/>
-	<!-- Contents 끝 -->
+	<section class="section blog-wrap border-bottom">
+	    <div class="container">
+		<!-- Contents 시작 -->
+		
+		<!-- Contents 끝 -->
+		</div>
+	</section>
 	
 	<c:import url="/WEB-INF/views/include/tail.jsp"/>
 </body>
