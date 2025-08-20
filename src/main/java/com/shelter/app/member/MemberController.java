@@ -79,4 +79,36 @@ public class MemberController {
 
 		return "common/result";
 	}
+	
+	@GetMapping("detail")
+	public String detail() throws Exception {
+		return "member/detail";
+	}
+	
+	@GetMapping("update")
+	public String update(HttpSession session, Model model) throws Exception {
+		model.addAttribute("memberVO", session.getAttribute("member"));
+		
+		return "member/update";
+	}
+	
+	@PostMapping("update")
+	public String upate(MemberVO memberVO, Model model, HttpSession session) throws Exception {
+		// 서비스 호출
+		int result = memberService.update(memberVO);
+		
+		String msg = "회원정보수정 중 문제가 발생했습니다. 다시 시도해주세요.";
+		String url = "./update";
+		if (result > 0) {
+			msg = "회원정보수정이 완료되었습니다.";
+			url = "./detail";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		session.setAttribute("member", memberService.login(memberVO));
+
+		return "common/result";
+	}
 }

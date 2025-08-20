@@ -28,7 +28,9 @@
 		JOIN member_author ma USING(member_id)
 		JOIN author a USING(author_id)
 		WHERE m.username = #{username}
-			  AND m.password = #{password};
+		<if test="password != null">
+			  AND m.password = #{password};		
+		</if>
   	</select>
   	
   	<insert id="insertMember" parameterType="MemberVO" useGeneratedKeys="true" keyProperty="memberId">
@@ -54,7 +56,20 @@
   	</insert>
   	
   	<insert id="insertRole" parameterType="RoleVO">
-	INSERT INTO member_author (member_id, author_id)
-	VALUES (#{memberId}, #{authorId})
+		INSERT INTO member_author (member_id, author_id)
+		VALUES (#{memberId}, #{authorId})
   	</insert>
+  	
+  	<update id="updateMember" parameterType="MemberVO">
+  		UPDATE member
+		SET
+			username = #{username}
+			,name = #{name}
+			,email = #{email}
+			,phone = #{phone}
+			,gender = #{gender}
+			,has_pet = #{hasPet}
+			,age = #{age}
+		WHERE member_id = #{memberId}
+  	</update>
   </mapper>

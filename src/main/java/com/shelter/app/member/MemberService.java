@@ -24,4 +24,8 @@ public class MemberService {
 		
 		return result;
 	}
+	
+	public int update(MemberVO memberVO) throws Exception {
+		return memberDAO.updateMember(memberVO);
+	}
 }
