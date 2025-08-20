@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace의 이름은 사용하려는 DAO의 풀패키지명과 동일하게 작성 -->
+<mapper namespace="com.shelter.app.pet.PetDAO">
+	<resultMap type="PetVO" id="detailResult">
+
+		<id column="pet_id" property="petId" />
+
+		<result column="public_number" property="publicNumber" />
+		<result column="public_date" property="publicDate" />
+		<result column="pet_gender" property="petGender" />
+		<result column="is_neutered" property="isNeutered" />
+		<result column="is_adopted" property="isAdopted" />
+
+	</resultMap>
+
+	<select id="list" resultType="PetVO">
+		SELECT * FROM pet ORDER BY pet_id
+		DESC;
+	</select>
+
+	<select id="detail" parameterType="PetVO"
+		resultMap="detailResult">
+		SELECT * FROM pet
+		WHERE pet.pet_id=#{petId};
+	</select>
+
+</mapper>

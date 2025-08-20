@@ -26,67 +26,67 @@ public class PetController {
 		
 		model.addAttribute("detail", petService.detail(petVO));
 	}
-	
-	@GetMapping("add")
-	public String add() throws Exception {
-		
-		return "pet/pet_form";
-	}
-	
-	@PostMapping("add")
-	public ModelAndView add(PetVO petVO, Model model) throws Exception {
-		
-		int result = petService.insert(petVO);
-		
-		String msg = "등록 실패";
-		if (result > 0) {
-			msg = "등록 성공";
-		}
-		
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("msg", msg);
-		mv.addObject("url", "./list");
-		
-		mv.setViewName("commons/result");
-		
-		return mv;
-	}
-	
-	@GetMapping("update")
-	public ModelAndView update(PetVO petVO, ModelAndView mv) throws Exception {
-		petVO = petService.detail(petVO);
-		
-		mv.addObject("vo",petVO);
-		mv.setViewName("pet/pet_form");
-		return mv;
-	}
-	
-	@PostMapping("update")
-	public String update(PetVO petVO, Model model) throws Exception {
-		int result = petService.update(petVO);
-		
-		String msg = "수정 실패";
-		if (result > 0) {
-			msg = "수정 성공";
-		}
-		
-		model.addAttribute("msg", msg);
-		model.addAttribute("url", "./detail?petNum="+petVO.getPetId());
-		return "commons/result";
-	}
-	
-	@PostMapping("delete")
-	public String delete(PetVO petVO, Model model) throws Exception {
-		int result = petService.delete(petVO);
-		String msg = "삭제 실패";
-		if (result>0) {
-			msg = "삭제 성공";
-		}
-		
-		model.addAttribute("msg", msg);
-		model.addAttribute("url", "./list");
-		return "commons/result";
-	}
+//	
+//	@GetMapping("add")
+//	public String add() throws Exception {
+//		
+//		return "pet/pet_form";
+//	}
+//	
+//	@PostMapping("add")
+//	public ModelAndView add(PetVO petVO, Model model) throws Exception {
+//		
+//		int result = petService.insert(petVO);
+//		
+//		String msg = "등록 실패";
+//		if (result > 0) {
+//			msg = "등록 성공";
+//		}
+//		
+//		ModelAndView mv = new ModelAndView();
+//		mv.addObject("msg", msg);
+//		mv.addObject("url", "./list");
+//		
+//		mv.setViewName("commons/result");
+//		
+//		return mv;
+//	}
+//	
+//	@GetMapping("update")
+//	public ModelAndView update(PetVO petVO, ModelAndView mv) throws Exception {
+//		petVO = petService.detail(petVO);
+//		
+//		mv.addObject("vo",petVO);
+//		mv.setViewName("pet/pet_form");
+//		return mv;
+//	}
+//	
+//	@PostMapping("update")
+//	public String update(PetVO petVO, Model model) throws Exception {
+//		int result = petService.update(petVO);
+//		
+//		String msg = "수정 실패";
+//		if (result > 0) {
+//			msg = "수정 성공";
+//		}
+//		
+//		model.addAttribute("msg", msg);
+//		model.addAttribute("url", "./detail?petNum="+petVO.getPetId());
+//		return "commons/result";
+//	}
+//	
+//	@PostMapping("delete")
+//	public String delete(PetVO petVO, Model model) throws Exception {
+//		int result = petService.delete(petVO);
+//		String msg = "삭제 실패";
+//		if (result>0) {
+//			msg = "삭제 성공";
+//		}
+//		
+//		model.addAttribute("msg", msg);
+//		model.addAttribute("url", "./list");
+//		return "commons/result";
+//	}
 	
 	
 	
