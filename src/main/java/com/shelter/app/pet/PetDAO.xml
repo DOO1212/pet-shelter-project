@@ -27,5 +27,10 @@
 		SELECT * FROM pet
 		WHERE pet.pet_id=#{petId};
 	</select>
+	
+	<insert id="insert" parameterType="PetVO">
+		INSERT INTO pet
+		VALUES (NULL, #{publicNumber}, localtime(), #{breed}, #{petGender}, #{isNeutered}, #{age}, #{weight}, #{feature}, #{vaccination}, #{isAdopted} )
+	</insert>
 
 </mapper>

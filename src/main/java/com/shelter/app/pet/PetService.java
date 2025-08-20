@@ -23,10 +23,10 @@ public class PetService {
 		return petDAO.detail(petVO);
 	}
 	
-//	public int insert(PetVO petVO) throws Exception {
-//		return petDAO.insert(petVO);
-//	}
-//	
+	public int insert(PetVO petVO) throws Exception {
+		return petDAO.insert(petVO);
+	}
+	
 //	public int update(PetVO petVO) throws Exception {
 //		return petDAO.update(petVO);
 //	}

@@ -35,6 +35,12 @@
 				</tbody>
 			</table>
 
+			<div>
+				<a href="./add" class="btn btn-success">등록</a>
+			</div>
+
+
+
 			<!-- Contents 끝 -->
 		</div>
 	</section>
