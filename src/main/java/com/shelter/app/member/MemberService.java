@@ -8,12 +8,11 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	public MemberVO login(MemberVO memberVO) {
+	public MemberVO login(MemberVO memberVO) throws Exception {
 		return memberDAO.login(memberVO);
 	}
 	
-	public int join(MemberVO memberVO) {
-		
+	public int join(MemberVO memberVO) throws Exception {
 		return memberDAO.join(memberVO);
 	}
 }

@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/member/*")
 @Slf4j
 public class MemberController {
+
 	@Autowired
 	private MemberService memberService;
 	
@@ -42,24 +43,35 @@ public class MemberController {
 	}
 	
 	@GetMapping("logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session) throws Exception {
 		session.invalidate();
 		
 		return "redirect:/";
 	}
 	
 	@GetMapping("join")
-	public String join() {
+	public String join() throws Exception {
 		return "member/join";
 	}
 	
 	@PostMapping("join")
-	public String join(MemberVO memberVO, Model model, HttpServletRequest req) {
+	public String join(MemberVO memberVO, Model model, HttpServletRequest req) throws Exception {
 		// 비밀번호 암호화
+		System.out.println("[MemberController] encPass1: " + req.getParameter("password"));
 		memberVO.setPassword(req.getParameter("password"));
 		
-		// TODO 서비스 호출
+		int result = memberService.join(memberVO);
 		
-		return "";
+		String msg = "회원가입 중 문제가 발생했습니다. 다시 시도해주세요.";
+		String url = "./join";
+		if (result > 0) {
+			msg = "회원가입이 완료되었습니다.";
+			url = "/";
+		} 
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+
+		return "common/result";
 	}
 }
