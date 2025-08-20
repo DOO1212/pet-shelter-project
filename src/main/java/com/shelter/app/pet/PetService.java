@@ -19,10 +19,10 @@ public class PetService {
 		return petDAO.list();
 	}
 	
-//	public PetVO detail(PetVO petVO) throws Exception {
-//		return petDAO.detail(petVO);
-//	}
-//	
+	public PetVO detail(PetVO petVO) throws Exception {
+		return petDAO.detail(petVO);
+	}
+	
 //	public int insert(PetVO petVO) throws Exception {
 //		return petDAO.insert(petVO);
 //	}
@@ -30,7 +30,7 @@ public class PetService {
 //	public int update(PetVO petVO) throws Exception {
 //		return petDAO.update(petVO);
 //	}
-//	
+	
 //	public int delete(PetVO petVO) throws Exception {
 //		return petDAO.delete(petVO);
 //	}

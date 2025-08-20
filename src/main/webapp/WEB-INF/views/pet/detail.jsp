@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Pet</title>
+<title>Insert title here</title>
 
 <c:import url="/WEB-INF/views/include/head.jsp" />
 </head>
@@ -16,24 +16,18 @@
 		<div class="container">
 			<!-- Contents 시작 -->
 
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>동물번호</th>
-						<th>공고번호</th>
-						<th>접수날짜</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${list}" var="list">
-						<tr>
-							<td>${list.petId}</td>
-							<td><a href="./detail?petId=${list.petId}">${list.publicNumber}</a></td>
-							<td>${list.publicDate}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+			<h1>동물</h1>
+			<h2>동물번호 : ${detail.petId}</h2>
+			<h2>공고번호 : ${detail.publicNumber} </h2>
+			<h2>접수날짜 : ${detail.publicDate} </h2>
+			<h2>품종 : ${detail.breed} </h2>
+			<h2>성별 : ${detail.petGender} </h2>
+			<h2>중성화여부 : ${detail.isNeutered} </h2>
+			<h2>나이 : ${detail.age} </h2>
+			<h2>체중 : ${detail.weight} </h2>
+			<h2>특징 : ${detail.feature} </h2>
+			<h2>접종상태 : ${detail.vaccination} </h2>
+			<h2>입양여부 : ${detail.isAdopted} </h2>
 
 			<!-- Contents 끝 -->
 		</div>

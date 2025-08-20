@@ -26,13 +26,13 @@ public class PetController {
 		
 		model.addAttribute("detail", petService.detail(petVO));
 	}
-//	
+	
 //	@GetMapping("add")
 //	public String add() throws Exception {
 //		
 //		return "pet/pet_form";
 //	}
-//	
+	
 //	@PostMapping("add")
 //	public ModelAndView add(PetVO petVO, Model model) throws Exception {
 //		
@@ -42,7 +42,7 @@ public class PetController {
 //		if (result > 0) {
 //			msg = "등록 성공";
 //		}
-//		
+		
 //		ModelAndView mv = new ModelAndView();
 //		mv.addObject("msg", msg);
 //		mv.addObject("url", "./list");
@@ -51,7 +51,7 @@ public class PetController {
 //		
 //		return mv;
 //	}
-//	
+	
 //	@GetMapping("update")
 //	public ModelAndView update(PetVO petVO, ModelAndView mv) throws Exception {
 //		petVO = petService.detail(petVO);
@@ -60,7 +60,7 @@ public class PetController {
 //		mv.setViewName("pet/pet_form");
 //		return mv;
 //	}
-//	
+	
 //	@PostMapping("update")
 //	public String update(PetVO petVO, Model model) throws Exception {
 //		int result = petService.update(petVO);
@@ -74,7 +74,7 @@ public class PetController {
 //		model.addAttribute("url", "./detail?petNum="+petVO.getPetId());
 //		return "commons/result";
 //	}
-//	
+	
 //	@PostMapping("delete")
 //	public String delete(PetVO petVO, Model model) throws Exception {
 //		int result = petService.delete(petVO);
