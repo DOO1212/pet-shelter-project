@@ -28,7 +28,22 @@
 			<h2>특징 : ${detail.feature} </h2>
 			<h2>접종상태 : ${detail.vaccination} </h2>
 			<h2>입양여부 : ${detail.isAdopted} </h2>
-
+			
+			
+			<!-- passing7by 시작 -->
+			<br>
+			
+			<div class="row">
+				<form action="/member/bookmark/add" method="post">
+					<input type="hidden" name="petId" value="${detail.petId}">
+					<button class="btn btn-warning">즐겨찾기 추가</button>
+				</form>
+				<form action="/donation" method="post" class="ml-4">
+					<input type="hidden" name="petId" value="${detail.petId}">
+					<button class="btn btn-success">후원하기</button>
+				</form>
+			</div>
+			<!-- passing7by 끝 -->
 			<!-- Contents 끝 -->
 		</div>
 	</section>
