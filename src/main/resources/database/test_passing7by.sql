@@ -15,3 +15,18 @@ VALUES (
 ,'000-0000-0000'
 ,0
 );
+
+INSERT INTO member_author (member_id, author_id)
+VALUES (4, 1);
+
+SELECT * FROM member m JOIN member_author ma USING(member_id) JOIN author a USING(author_id) 
+WHERE m.username = 'w' AND m.password = 'UOch5JwBPwDGLPWfIWNUKp2N8CRk7+thXTEFGw/dwyY=';
+
+SELECT * FROM member m JOIN member_author ma USING(member_id) JOIN author a USING(author_id) 
+WHERE m.username = 'asdf' AND m.password = '8OTC92xYkW7CWPJGhRvqCR0U1CR6L8PhhpRGGxgW4Ts='; 
+
+SELECT m.*, ma.*, a.*
+FROM member m 
+JOIN member_author ma USING(member_id) 
+JOIN author a USING(author_id) 
+WHERE m.username = 'asdf'; 

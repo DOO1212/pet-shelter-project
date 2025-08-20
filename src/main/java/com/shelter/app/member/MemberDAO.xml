@@ -31,7 +31,7 @@
 			  AND m.password = #{password};
   	</select>
   	
-  	<insert id="join" parameterType="MemberVO">
+  	<insert id="insertMember" parameterType="MemberVO" useGeneratedKeys="true" keyProperty="memberId">
   		INSERT INTO member (username, password, name, gender, age, email, phone, has_pet)
 		VALUES (
 		#{username}
@@ -51,5 +51,10 @@
 			</otherwise>
 		</choose>
 		)
+  	</insert>
+  	
+  	<insert id="insertRole" parameterType="RoleVO">
+	INSERT INTO member_author (member_id, author_id)
+	VALUES (#{memberId}, #{authorId})
   	</insert>
   </mapper>

@@ -1,5 +1,7 @@
 package com.shelter.app.member;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +27,11 @@ public class MemberController {
 	}
 	
 	@PostMapping("login")
-	public String login(MemberVO memberVO, Model model, HttpSession session) throws Exception {
+	public String login(MemberVO memberVO, Model model, HttpSession session, HttpServletRequest req) throws Exception {
+		// 비밀번호 암호화
+		memberVO.setPassword(req.getParameter("password"));
+		System.out.println("[MemberController] login - memberVO" + memberVO);
+		
 		memberVO = memberService.login(memberVO);
 		log.info("[login] 데이터 조회 결과: {}", memberVO);
 		
@@ -57,7 +63,6 @@ public class MemberController {
 	@PostMapping("join")
 	public String join(MemberVO memberVO, Model model, HttpServletRequest req) throws Exception {
 		// 비밀번호 암호화
-		System.out.println("[MemberController] encPass1: " + req.getParameter("password"));
 		memberVO.setPassword(req.getParameter("password"));
 		
 		int result = memberService.join(memberVO);

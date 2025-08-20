@@ -13,6 +13,15 @@ public class MemberService {
 	}
 	
 	public int join(MemberVO memberVO) throws Exception {
-		return memberDAO.join(memberVO);
+		int result = memberDAO.insertMember(memberVO);
+		
+		if(result > 0) {
+			RoleVO roleVO = new RoleVO();
+			roleVO.setMemberId(memberVO.getMemberId());
+			roleVO.setAuthorId(1); // 처음 회원가입시에는 모두 회원권한으로, 나중에 권한 변경은 관리자가
+			result = memberDAO.insertRole(roleVO);
+		}
+		
+		return result;
 	}
 }
