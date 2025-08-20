@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!-- NAVBAR
     ================================================= -->
 <div class="main-navigation fixed-top site-header" id="mainmenu-area">
@@ -33,8 +34,15 @@
 						<a href="/ask/list" class="nav-link smoth-scroll"> 문의 </a>
 					</li>
 				</ul>
-
-				<a href="/member/login" class="btn btn-border-tp btn-small ml-3">로그인 / 회원가입</a>
+				
+				<c:choose>
+					<c:when test="${member ne null}">
+						<a href="/member/logout" class="btn btn-border-tp btn-small ml-3">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="/member/login" class="btn btn-border-tp btn-small ml-3">로그인 / 회원가입</a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</nav>
