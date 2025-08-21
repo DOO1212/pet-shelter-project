@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shelter.app.donation.DonationDAO">
+
+	<resultMap type="DonationVO" id="detailResult">
+
+		<id column="donation_id" property="donationId" />
+
+		<result column="donation_date" property="donationDate" />
+		<result column="donation_price" property="donationPrice" />
+		<result column="order_id" property="orderId" />
+
+		<association property="memberVO"
+			javaType="com.shelter.app.member.MemberVO">
+			<id column="member_id" property="memberId" />
+			<result column="username" property="username" />
+			<result column="name" property="name"/>
+		</association>
+
+		<association property="petVO"
+			javaType="com.shelter.app.pet.PetVO">
+			<id column="pet_id" property="petId" />
+		</association>
+
+	</resultMap>
+
+	<insert id="createDonation" parameterType="DonationVO">
+		INSERT INTO donation (
+		donation_id, member_id, pet_id, donation_date, donation_price,
+		order_id, status)
+		VALUES (
+		NULL, #{memberId}, #{petId}, curdate(),
+		#{donationPrice}, #{orderId}, #{status})
+	</insert>
+
+	<select id="findDonation" parameterType="String" resultMap="detailResult">
+		SELECT * FROM donation d
+		JOIN member m
+		USING (member_id)
+		WHERE order_id = #{orderId}
+	</select>
+	
+	<update id="completeDonation" parameterType="DonationVO">
+		UPDATE donation SET status = 'COMPLETED'
+		WHERE order_id = #{orderId}
+	</update>
+	
+</mapper>

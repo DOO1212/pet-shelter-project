@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.shelter.app.pet.PetVO;
+import com.shelter.app.member.MemberVO;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/ask/*")
@@ -36,7 +38,17 @@ public class AskController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView add(AskVO askVO, Model model) throws Exception {
+	public ModelAndView add(AskVO askVO, Model model, HttpSession session) throws Exception {
+		
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		
+		if (member == null) {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("redirect:/member/login");
+			return mv;
+		}
+		
+		askVO.setMemberId(member.getMemberId());		
 		
 		int result = askService.insert(askVO);
 		

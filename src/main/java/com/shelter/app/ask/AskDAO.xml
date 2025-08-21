@@ -28,9 +28,12 @@
 	</select>
 
 	<insert id="insert" parameterType="AskVO">
-		INSERT INTO ask
-		VALUES (NULL,
-		1, #{title}, #{content}, localtime(), NULL )
+		INSERT INTO ask(
+		ask_id,
+		member_id, title, content, created_at, updated_at
+		) VALUES (
+		NULL, #{memberId}, #{title}, #{content}, localtime(), NULL
+		)
 	</insert>
 
 	<update id="update" parameterType="AskVO">
