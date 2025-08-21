@@ -5,10 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.shelter.app.board.BoardFileVO;
-import com.shelter.app.board.BoardService;
-import com.shelter.app.board.BoardVO;
-
 @Service
 public class PetService {
 
@@ -27,13 +23,13 @@ public class PetService {
 		return petDAO.insert(petVO);
 	}
 	
-//	public int update(PetVO petVO) throws Exception {
-//		return petDAO.update(petVO);
-//	}
+	public int update(PetVO petVO) throws Exception {
+		return petDAO.update(petVO);
+	}
 	
-//	public int delete(PetVO petVO) throws Exception {
-//		return petDAO.delete(petVO);
-//	}
+	public int delete(PetVO petVO) throws Exception {
+		return petDAO.delete(petVO);
+	}
 
 
 }
