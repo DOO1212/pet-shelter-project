@@ -50,7 +50,8 @@
 
 	<delete id="delete" parameterType="PetVO">
 		DELETE FROM pet
-		WHERE pet_id=#{petId}
+		WHERE
+		pet_id=#{petId}
 	</delete>
 
 </mapper>

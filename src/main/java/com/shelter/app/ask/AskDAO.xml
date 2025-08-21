@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace의 이름은 사용하려는 DAO의 풀패키지명과 동일하게 작성 -->
+<mapper namespace="com.shelter.app.ask.AskDAO">
+
+	<resultMap type="AskVO" id="detailResult">
+
+		<id column="ask_id" property="askId" />
+
+		<result column="member_id" property="memberId" />
+		<result column="created_at" property="createdAt" />
+		<result column="updated_at" property="updatedAt" />
+
+	</resultMap>
+
+	<select id="list" resultType="AskVO">
+		SELECT * FROM ask ORDER BY ask_id
+		DESC;
+	</select>
+</mapper>
