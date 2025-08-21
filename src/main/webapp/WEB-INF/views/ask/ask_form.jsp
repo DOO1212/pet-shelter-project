@@ -19,29 +19,18 @@
 			<div class="row justify-content-center">
 				<div>
 					<form method="post">
+
 						<div>
-							<label for="publicNumber" class="form-label">공고번호</label> <input
-								type="text" class="form-control" name="publicNumber"
-								id="publicNumber" aria-describedby="writerHelp"
-								value="${detail.publicNumber}">
+							<label for="title" class="form-label">제목</label> <input
+								type="text" class="form-control" name="title" id="title"
+								aria-describedby="writerHelp" value="${detail.title}">
 						</div>
 
 						<div>
-							<label for="breed" class="form-label">품종</label> <input
-								type="text" class="form-control" name="breed" id="breed"
-								aria-describedby="writerHelp" value="${detail.breed}">
+							<label for="content" class="form-label">내용</label> <input
+								type="text" class="form-control" name="content" id="content"
+								aria-describedby="writerHelp" value="${detail.content}">
 						</div>
-
-						<label for="petGender" class="form-label">성별</label> <select
-							class="form-control form-select" name="petGender">
-							<option value="0" ${detail.petGender eq "0"?'selected':''}>남자</option>
-							<option value="1" ${detail.petGender eq "1"?'selected':''}>여자</option>
-						</select>
-
-
-
-
-
 
 
 						<button type="submit" class="btn btn-primary">Submit</button>

@@ -27,10 +27,20 @@
 		WHERE ask.ask_id=#{askId};
 	</select>
 
-	<insert id="insert" parameterType="PetVO">
-		INSERT INTO pet
+	<insert id="insert" parameterType="AskVO">
+		INSERT INTO ask
 		VALUES (NULL,
-		#{member_id}, #{title}, #{content}, localtime(), NULL )
+		1, #{title}, #{content}, localtime(), NULL )
 	</insert>
+
+	<update id="update" parameterType="AskVO">
+		UPDATE ask
+		SET
+		title=#{title},
+		content=#{content},
+		updated_at=localtime()
+		WHERE
+		ask_id=#{askId}
+	</update>
 
 </mapper>

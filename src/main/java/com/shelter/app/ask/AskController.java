@@ -53,4 +53,27 @@ public class AskController {
 		
 		return mv;
 	}
+	
+	@GetMapping("update")
+	public ModelAndView update(AskVO askVO, ModelAndView mv) throws Exception {
+		askVO = askService.detail(askVO);
+		
+		mv.addObject("detail", askVO);
+		mv.setViewName("ask/ask_form");
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public String update(AskVO askVO, Model model) throws Exception {
+		int result = askService.update(askVO);
+		
+		String msg = "수정 실패";
+		if (result > 0) {
+			msg = "수정 성공";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", "./detail?askId="+askVO.getAskId());
+		return "commons/result";
+	}
 }
