@@ -27,4 +27,10 @@
 		WHERE ask.ask_id=#{askId};
 	</select>
 
+	<insert id="insert" parameterType="PetVO">
+		INSERT INTO pet
+		VALUES (NULL,
+		#{member_id}, #{title}, #{content}, localtime(), NULL )
+	</insert>
+
 </mapper>

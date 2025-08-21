@@ -28,6 +28,12 @@
 			<h2>특징 : ${detail.feature}</h2>
 			<h2>접종상태 : ${detail.vaccination}</h2>
 			<h2>입양여부 : ${detail.isAdopted}</h2>
+			
+			<div>
+
+					<a href="../donation/index"><button class="btn btn-success">후원하기</button></a>
+				</form>
+			</div>
 
 			<div>
 				<form action="./delete" method="post">
