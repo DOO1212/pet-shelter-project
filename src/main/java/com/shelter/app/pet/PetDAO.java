@@ -16,5 +16,13 @@ public interface PetDAO {
 	public int update(PetVO petVO) throws Exception;
 	
 	public int delete(PetVO petVO) throws Exception;
+	
+//	public int insertFile(PetFileVO petFileVO) throws Exception;
+	
+//	public int deleteFile(PetVO petVO) throws Exception;
+	
+//	public int deleteFileOne(PetVO petVO) throws Exception;
+	
+//	public AskFileVO detailFile(PetFileVO petFileVO) throws Exception;
 
 }
