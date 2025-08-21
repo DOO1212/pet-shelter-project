@@ -28,20 +28,22 @@
 			<h2>특징 : ${detail.feature}</h2>
 			<h2>접종상태 : ${detail.vaccination}</h2>
 			<h2>입양여부 : ${detail.isAdopted}</h2>
-			
-			<div>
 
-					<a href="../donation/index"><button class="btn btn-success">후원하기</button></a>
+			<div>
+				<a href="/donation/pay?petId=${petVO.petId}"><button class="btn btn-success">후원하기</button></a>
 				</form>
 			</div>
 
-			<div>
-				<form action="./delete" method="post">
-					<input type="hidden" name="petId" value="${detail.petId}">
-					<a class="btn btn-success" href="./update?petId=${detail.petId}">Update</a>
-					<button class="btn btn-danger">Delete</button>
-				</form>
-			</div>
+			<c:if
+				test="${not empty sessionScope.member.memberId == boardVO.memberId}">
+				<div>
+					<form action="./delete" method="post">
+						<input type="hidden" name="petId" value="${detail.petId}">
+						<a class="btn btn-success" href="./update?petId=${detail.petId}">Update</a>
+						<button class="btn btn-danger">Delete</button>
+					</form>
+				</div>
+			</c:if>
 
 			<!-- Contents 끝 -->
 		</div>
