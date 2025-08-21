@@ -32,17 +32,17 @@
 								aria-describedby="writerHelp" value="${detail.breed}">
 						</div>
 
-						<label for="gender" class="form-label">상품종류</label> <select
-							class="form-control form-select" name="gender">
-							<option value="1" ${vo.kindNum eq '1'?'selected':''}>남자</option>
-							<option value="2" ${vo.kindNum eq '2'?'selected':''}>여자</option>
+						<label for="petGender" class="form-label">성별</label> <select
+							class="form-control form-select" name="petGender">
+							<option value="0" ${detail.petGender eq "0"?'selected':''}>남자</option>
+							<option value="1" ${detail.petGender eq "1"?'selected':''}>여자</option>
 						</select>
 
 
 						<label for="isNeutered" class="form-label">중성화여부</label> <select
 							class="form-control form-select" name="isNeutered">
-							<option value="1" ${vo.kindNum eq '1'?'selected':''}>중성화완료</option>
-							<option value="2" ${vo.kindNum eq '2'?'selected':''}>미중성화</option>
+							<option value="0" ${detail.isNeutered eq '0'?'selected':''}>중성화완료</option>
+							<option value="1" ${detail.isNeutered eq '1'?'selected':''}>미중성화</option>
 						</select>
 
 						<div>
@@ -65,14 +65,14 @@
 
 						<label for="vaccination" class="form-label">접종여부</label> <select
 							class="form-control form-select" name="vaccination">
-							<option value="1" ${vo.kindNum eq '1'?'selected':''}>접종완료</option>
-							<option value="2" ${vo.kindNum eq '2'?'selected':''}>미접종</option>
+							<option value="0" ${detail.vaccination eq '0'?'selected':''}>접종완료</option>
+							<option value="1" ${detail.vaccination eq '1'?'selected':''}>미접종</option>
 						</select>
 
 						<label for="isAdopted" class="form-label">입양여부</label> <select
 							class="form-control form-select" name="isAdopted">
-							<option value="1" ${vo.kindNum eq '1'?'selected':''}>입양완료</option>
-							<option value="2" ${vo.kindNum eq '2'?'selected':''}>입양대기</option>
+							<option value="0" ${detail.isAdopted eq '0'?'selected':''}>입양완료</option>
+							<option value="1" ${detail.isAdopted eq '1'?'selected':''}>입양대기</option>
 						</select>
 
 						<button type="submit" class="btn btn-primary">Submit</button>

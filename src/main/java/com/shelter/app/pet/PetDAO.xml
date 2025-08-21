@@ -27,10 +27,30 @@
 		SELECT * FROM pet
 		WHERE pet.pet_id=#{petId};
 	</select>
-	
+
 	<insert id="insert" parameterType="PetVO">
 		INSERT INTO pet
-		VALUES (NULL, #{publicNumber}, localtime(), #{breed}, #{petGender}, #{isNeutered}, #{age}, #{weight}, #{feature}, #{vaccination}, #{isAdopted} )
+		VALUES (NULL,
+		#{publicNumber}, localtime(), #{breed}, #{petGender}, #{isNeutered},
+		#{age}, #{weight}, #{feature}, #{vaccination}, #{isAdopted} )
 	</insert>
+
+	<update id="update" parameterType="PetVO">
+		UPDATE pet
+		SET
+		is_neutered
+		=#{isNeutered},
+		weight=#{weight},
+		feature=#{feature},
+		vaccination=#{vaccination},
+		is_adopted=#{isAdopted}
+		WHERE
+		pet_id=#{petId}
+	</update>
+
+	<delete id="delete" parameterType="PetVO">
+		DELETE FROM pet
+		WHERE pet_id=#{petId}
+	</delete>
 
 </mapper>
