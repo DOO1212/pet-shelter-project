@@ -38,6 +38,7 @@
 				<c:choose>
 					<c:when test="${member ne null}">
 						<a href="/member/logout" class="btn btn-border-tp btn-small ml-3">로그아웃</a>
+						<a href="/member/detail" class="btn btn-border-tp btn-small ml-3">마이페이지</a>
 					</c:when>
 					<c:otherwise>
 						<a href="/member/login" class="btn btn-border-tp btn-small ml-3">로그인 / 회원가입</a>

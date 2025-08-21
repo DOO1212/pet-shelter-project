@@ -57,7 +57,7 @@
 					<div>
 						<b>반려동물여부</b>
 						<div class="mb-3 form-check">
-							<input type="checkbox" id="has_pet" name="has_pet">
+							<input type="checkbox" id="hasPet" name="hasPet" value="1">
 						</div>
 					</div>
 					<button class="btn btn-main">회원가입</button>
