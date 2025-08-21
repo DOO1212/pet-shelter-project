@@ -76,4 +76,17 @@ public class AskController {
 		model.addAttribute("url", "./detail?askId="+askVO.getAskId());
 		return "commons/result";
 	}
+	
+	@PostMapping("delete")
+	public String delete(AskVO askVO, Model model) throws Exception {
+		int result = askService.delete(askVO);
+		String msg = "삭제 실패";
+		if (result>0) {
+			msg = "삭제 성공";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", "./list");
+		return "commons/result";
+	}
 }

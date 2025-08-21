@@ -27,10 +27,9 @@ public class AskService {
 		return askDAO.update(askVO);		
 	}
 	
-//	public int delete(AskVO askVO) throws Exception {
-//		return 0;		
-//	}
+	public int delete(AskVO askVO) throws Exception {
+		return askDAO.delete(askVO);		
+	}
 	
-
 
 }

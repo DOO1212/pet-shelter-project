@@ -43,4 +43,10 @@
 		ask_id=#{askId}
 	</update>
 
+	<delete id="delete" parameterType="AskVO">
+		DELETE FROM ask
+		WHERE
+		ask_id=#{askId}
+	</delete>
+
 </mapper>
