@@ -15,9 +15,9 @@ public class AskService {
 		return askDAO.list();		
 	}
 	
-//	public AskVO detail(AskVO askVO) throws Exception {
-//		return 0;		
-//	}
+	public AskVO detail(AskVO askVO) throws Exception {
+		return askDAO.detail(askVO);		
+	}
 	
 //	public int insert(AskVO askVO) throws Exception {
 //		return 0;		

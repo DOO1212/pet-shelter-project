@@ -13,8 +13,8 @@ public class AskVO {
 	
 	private Long askId;
 	private Long memberId;
-	private String content;
 	private String title;
+	private String content;
 	private LocalDate createdAt;
 	private LocalDate updatedAt;
 
