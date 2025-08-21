@@ -75,18 +75,18 @@ public class PetController {
 		return "commons/result";
 	}
 	
-//	@PostMapping("delete")
-//	public String delete(PetVO petVO, Model model) throws Exception {
-//		int result = petService.delete(petVO);
-//		String msg = "삭제 실패";
-//		if (result>0) {
-//			msg = "삭제 성공";
-//		}
-//		
-//		model.addAttribute("msg", msg);
-//		model.addAttribute("url", "./list");
-//		return "commons/result";
-//	}
+	@PostMapping("delete")
+	public String delete(PetVO petVO, Model model) throws Exception {
+		int result = petService.delete(petVO);
+		String msg = "삭제 실패";
+		if (result>0) {
+			msg = "삭제 성공";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", "./list");
+		return "commons/result";
+	}
 	
 	
 	

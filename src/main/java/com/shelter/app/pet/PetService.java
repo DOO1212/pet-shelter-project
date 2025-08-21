@@ -31,9 +31,9 @@ public class PetService {
 		return petDAO.update(petVO);
 	}
 	
-//	public int delete(PetVO petVO) throws Exception {
-//		return petDAO.delete(petVO);
-//	}
+	public int delete(PetVO petVO) throws Exception {
+		return petDAO.delete(petVO);
+	}
 
 
 }

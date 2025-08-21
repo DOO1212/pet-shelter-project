@@ -38,12 +38,19 @@
 	<update id="update" parameterType="PetVO">
 		UPDATE pet
 		SET
-		is_neutered =#{isNeutered},
+		is_neutered
+		=#{isNeutered},
 		weight=#{weight},
 		feature=#{feature},
 		vaccination=#{vaccination},
 		is_adopted=#{isAdopted}
-		WHERE pet_id=#{petId}
+		WHERE
+		pet_id=#{petId}
 	</update>
+
+	<delete id="delete" parameterType="PetVO">
+		DELETE FROM pet
+		WHERE pet_id=#{petId}
+	</delete>
 
 </mapper>

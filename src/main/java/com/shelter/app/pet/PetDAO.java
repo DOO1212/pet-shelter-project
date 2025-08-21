@@ -15,6 +15,6 @@ public interface PetDAO {
 	
 	public int update(PetVO petVO) throws Exception;
 	
-//	public int delete(PetVO petVO) throws Exception;
+	public int delete(PetVO petVO) throws Exception;
 
 }
