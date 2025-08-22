@@ -70,7 +70,9 @@ CREATE TABLE `donation` (
 	`member_id`	BIGINT	NOT NULL,
 	`pet_id`	BIGINT	NOT NULL,
 	`donation_date`	DATETIME	NOT NULL	DEFAULT CURRENT_TIMESTAMP,
-	`donation_price`	BIGINT	NOT NULL
+	`donation_price`	BIGINT	NOT NULL,
+    `order_id` VARCHAR(255) NULL,
+    `status` VARCHAR(20) NULL
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
