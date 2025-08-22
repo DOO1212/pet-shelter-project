@@ -63,14 +63,19 @@ public class DonationController {
 		        donationService.completeDonation(donationVO);
 		        model.addAttribute("order", donationVO);
 		        model.addAttribute("name", donationVO.getMemberVO().getUsername());
+		        model.addAttribute("petId", donationVO.getPetVO().getPetId());
 		        
 		        return "donation/success";
 		        
 		    } else {
+		    	model.addAttribute("petId", donationVO.getPetId());
+		    	
 		        return "donation/fail";
 		    }
 		    
 		} else {
+			model.addAttribute("petId", donationVO.getPetId());
+			
 		    return "donation/fail";
 		}
 	}
