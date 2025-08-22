@@ -3,11 +3,11 @@ INSERT INTO `author` (`author_id`, `author_name`) VALUES
 (1, 'ROLE_USER'),
 (2, 'ROLE_ADMIN');
 
--- member 테이블 더미 데이터
+-- member 테이블 더미 데이터 
 INSERT INTO `member` (`member_id`, `username`, `password`, `name`, `gender`, `age`, `email`, `phone`, `has_pet`, `account_non_expired`) VALUES
-(1, 'user01', 'a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2', '김지남', 'M', 28, 'jinam@example.com', '010-1234-5678', 1, 1),
-(2, 'user02', 'b1c2d3e4f5a6b1c2d3e4f5a6b1c2d3e4f5a6b1c2d3e4f5a6b1c2d3e4f5a6b1c2', '박서준', 'F', 32, 'seojun@example.com', '010-8765-4321', 0, 0),
-(3, 'admin01', 'c1d2e3f4a5b6c1d2e3f4a5b6c1d2e3f4a5b6c1d2e3f4a5b6c1d2e3f4a5b6c1d2', '이관리', 'M', 45, 'manager@example.com', '010-1111-2222', 1, 1);
+(1, 'user01', 'qtQVpzxM7x75SlwAsmQrVxo+VJRTYyitlg22GIm9k2g=', '김지남', 'M', 28, 'jinam@example.com', '010-1234-5678', 1, 1),
+(2, 'user02', 'dkMfrIoYckGvjz83FW3rlHMvUvtF6wfsT0YgUb2C8YM=', '박서준', 'F', 32, 'seojun@example.com', '010-8765-4321', 0, 0),
+(3, 'admin01', 'CHbfym1v7fmbKrh7bi/tS9QFHt54qKkTW1ALLpTZm4g=', '이관리', 'M', 45, 'manager@example.com', '010-1111-2222', 1, 1);
 
 -- member_author 테이블 더미 데이터
 INSERT INTO `member_author` (`member_id`, `author_id`) VALUES
