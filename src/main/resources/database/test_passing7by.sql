@@ -30,3 +30,14 @@ FROM member m
 JOIN member_author ma USING(member_id) 
 JOIN author a USING(author_id) 
 WHERE m.username = 'asdf'; 
+
+UPDATE member
+SET
+	username = 'tt'
+	,name = 'tt'
+	,email = 'tt@tt.com'
+	,phone = '000-0000-0000'
+	,gender = 'F'
+	,has_pet = 1
+	,age = 21
+WHERE member_id = 17;

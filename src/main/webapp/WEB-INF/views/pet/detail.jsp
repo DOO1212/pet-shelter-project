@@ -18,6 +18,7 @@
 
 			<h1>동물</h1>
 			<h2>동물번호 : ${detail.petId}</h2>
+
 			<h2>공고번호 : ${detail.publicNumber}</h2>
 			<h2>접수날짜 : ${detail.publicDate}</h2>
 			<h2>품종 : ${detail.breed}</h2>
