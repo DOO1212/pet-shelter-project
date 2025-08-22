@@ -25,22 +25,25 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${list}" var="list">
-						<tr>
-							<td>${list.petId}</td>
-							<td><a href="./detail?petId=${list.petId}">${list.publicNumber}</a></td>
-							<td>${list.publicDate}</td>
-						</tr>
+					<c:forEach items="${list}" var="petVO">
+						<c:if test="${petVO.petNonExpired != 0 }">
+							<tr>
+								<td>${petVO.petId}</td>
+								<td><a href="./detail?petId=${petVO.petId}">${petVO.publicNumber}</a></td>
+								<td>${petVO.publicDate}</td>
+							</tr>
+						</c:if>
 					</c:forEach>
 				</tbody>
 			</table>
-
+			
 			<div>
-				<a href="./add" class="btn btn-success">등록</a>
+				<c:forEach items="${member.roleVOs }" var="role">
+					<c:if test="${role.authorId eq 2}">
+						<a href="./add" class="btn btn-success">등록</a>
+					</c:if>
+				</c:forEach>
 			</div>
-
-
-
 			<!-- Contents 끝 -->
 		</div>
 	</section>

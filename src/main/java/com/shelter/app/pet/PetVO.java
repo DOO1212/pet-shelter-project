@@ -22,5 +22,6 @@ public class PetVO {
 	private String feature;
 	private String vaccination;
 	private Integer isAdopted;	
+	private Integer petNonExpired;	
 
 }

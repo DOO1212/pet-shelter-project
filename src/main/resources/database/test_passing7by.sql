@@ -41,3 +41,14 @@ SET
 	,has_pet = 1
 	,age = 21
 WHERE member_id = 17;
+
+-- 
+ALTER TABLE `donation` add COLUMN `order_id` VARCHAR(255);
+ALTER TABLE `donation` add COLUMN `status` VARCHAR(20);
+--
+insert into member_author (member_id, author_id)
+VALUES (8, 2);
+
+delete from member_author
+where member_author_id=10;
+
