@@ -10,12 +10,12 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	@Autowired
 	private LogingInterceptor logingInterceptor;
 	@Autowired
-	private AdminAccessInterceptor adminAccessInterceptor;
+	private AdminPageInterceptor adminPageInterceptor;
 	
 	// 인터셉터들을 registry에 추가하는 메서드
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(logingInterceptor).addPathPatterns("/", "/member/**", "/pet/**", "/donation/**", "/ask/**");
-		registry.addInterceptor(adminAccessInterceptor).addPathPatterns("/pet/add", "/pet/update", "/pet/delete");
+		registry.addInterceptor(adminPageInterceptor).addPathPatterns("/pet/add", "/pet/update");
 	}
 }

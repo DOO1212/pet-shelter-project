@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class AdminAccessInterceptor implements HandlerInterceptor {
+public class AdminPageInterceptor implements HandlerInterceptor {
 	// 주소창으로 /pet/add 혹은 /pet/update에 대해 get 요청을 보낸다면 관리자 권한인지 체크하는 interceptor
 	
 	@Override
