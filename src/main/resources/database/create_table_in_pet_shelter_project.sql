@@ -41,7 +41,8 @@ CREATE TABLE `pet` (
 	`weight`	DECIMAL(5, 2)	NULL,
 	`feature`	TEXT	NULL,
 	`vaccination`	TEXT	NULL,
-	`is_adopted`	TINYINT	NOT NULL
+	`is_adopted`	TINYINT	NOT NULL,
+    `pet_non_expired`	TINYINT	NOT NULL DEFAULT 1
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
