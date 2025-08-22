@@ -8,14 +8,15 @@ DEFAULT CHARACTER SET = utf8mb4;
 
 CREATE TABLE `member` (
 	`member_id`	BIGINT	NOT NULL	PRIMARY KEY AUTO_INCREMENT,
-	`username`	VARCHAR(255)	NOT NULL,
+	`username`	VARCHAR(255)	NOT NULL	UNIQUE,
 	`password`	CHAR(64)	NOT NULL,
 	`name`	VARCHAR(255)	NOT NULL,
 	`gender`	CHAR(1)	NULL,
 	`age`	INT	NULL,
 	`email`	VARCHAR(255)	NULL,
 	`phone`	VARCHAR(255)	NOT NULL,
-	`has_pet`	TINYINT	NULL
+	`has_pet`	TINYINT	NULL,
+    `account_non_expired` TINYINT	NOT NULL	DEFAULT 1
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -40,7 +41,8 @@ CREATE TABLE `pet` (
 	`weight`	DECIMAL(5, 2)	NULL,
 	`feature`	TEXT	NULL,
 	`vaccination`	TEXT	NULL,
-	`is_adopted`	TINYINT	NOT NULL
+	`is_adopted`	TINYINT	NOT NULL,
+    `pet_non_expired`	TINYINT	NOT NULL DEFAULT 1
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -69,7 +71,9 @@ CREATE TABLE `donation` (
 	`member_id`	BIGINT	NOT NULL,
 	`pet_id`	BIGINT	NOT NULL,
 	`donation_date`	DATETIME	NOT NULL	DEFAULT CURRENT_TIMESTAMP,
-	`donation_price`	BIGINT	NOT NULL
+	`donation_price`	BIGINT	NOT NULL,
+    `order_id` VARCHAR(255) NULL,
+    `status` VARCHAR(20) NULL
 )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;

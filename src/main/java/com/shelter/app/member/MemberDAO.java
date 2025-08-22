@@ -9,4 +9,5 @@ public interface MemberDAO {
 	public int insertRole(RoleVO roleVO) throws Exception;
 	public int updateMember(MemberVO memberVO) throws Exception;
 	public MemberVO selectMember(MemberVO memberVO) throws Exception;
+	public int deleteMember(MemberVO memberVO) throws Exception;
 }

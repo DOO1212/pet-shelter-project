@@ -61,16 +61,22 @@ public class DonationController {
 		    if (amount.equals(donationVO.getDonationPrice())) {
 		        
 		        donationService.completeDonation(donationVO);
-		        model.addAttribute("donationVO", donationVO);
-		        model.addAttribute("memberVO", donationVO.getMemberVO());
+
+		        model.addAttribute("order", donationVO);
+		        model.addAttribute("name", donationVO.getMemberVO().getUsername());
+		        model.addAttribute("petId", donationVO.getPetVO().getPetId());
 		        
 		        return "donation/success";
 		        
 		    } else {
+		    	model.addAttribute("petId", donationVO.getPetId());
+		    	
 		        return "donation/fail";
 		    }
 		    
 		} else {
+			model.addAttribute("petId", donationVO.getPetId());
+			
 		    return "donation/fail";
 		}
 	}

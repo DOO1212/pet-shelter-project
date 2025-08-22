@@ -49,8 +49,10 @@
 				
 				<br>
 				
-				<a href="/member/update" class="btn btn-primary">수정하기</a>
-				<a href="/member/delete" class="btn btn-danger ml-3">삭제하기</a>
+				<form action="/member/delete" method="post">
+					<a href="/member/update" class="btn btn-primary">수정하기</a>
+					<button class="btn btn-danger ml-3">회원탈퇴</button>				
+				</form>
 			</div>
 		</div>
 		<!-- Contents 끝 -->

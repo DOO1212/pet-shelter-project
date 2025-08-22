@@ -15,6 +15,7 @@
 		<result column="email" property="email"/>
 		<result column="phone" property="phone"/>
 		<result column="has_pet" property="hasPet"/>
+		<result column="account_non_expired" property="accountNonExpired"/>
 		
 		<collection property="roleVOs" javaType="java.util.List" ofType="RoleVO">
 			<id column="member_author_id" property="memberAuthorId"/>
@@ -27,10 +28,12 @@
 		FROM member m
 		JOIN member_author ma USING(member_id)
 		JOIN author a USING(author_id)
-		WHERE m.username = #{username}
-		<if test="password != null">
-			  AND m.password = #{password};		
-		</if>
+		WHERE
+			m.account_non_expired = 1
+			AND m.username = #{username}
+			<if test="password != null">
+				  AND m.password = #{password};		
+			</if>
   	</select>
   	
   	<insert id="insertMember" parameterType="MemberVO" useGeneratedKeys="true" keyProperty="memberId">
@@ -70,6 +73,12 @@
 			,gender = #{gender}
 			,has_pet = #{hasPet}
 			,age = #{age}
+		WHERE member_id = #{memberId}
+  	</update>
+  	
+  	<update id="deleteMember" parameterType="MemberVO">
+  		UPDATE member
+		SET account_non_expired = 0
 		WHERE member_id = #{memberId}
   	</update>
   </mapper>

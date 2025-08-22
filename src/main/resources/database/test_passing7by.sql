@@ -30,3 +30,25 @@ FROM member m
 JOIN member_author ma USING(member_id) 
 JOIN author a USING(author_id) 
 WHERE m.username = 'asdf'; 
+
+UPDATE member
+SET
+	username = 'tt'
+	,name = 'tt'
+	,email = 'tt@tt.com'
+	,phone = '000-0000-0000'
+	,gender = 'F'
+	,has_pet = 1
+	,age = 21
+WHERE member_id = 17;
+
+-- 
+ALTER TABLE `donation` add COLUMN `order_id` VARCHAR(255);
+ALTER TABLE `donation` add COLUMN `status` VARCHAR(20);
+--
+insert into member_author (member_id, author_id)
+VALUES (8, 2);
+
+delete from member_author
+where member_author_id=10;
+
