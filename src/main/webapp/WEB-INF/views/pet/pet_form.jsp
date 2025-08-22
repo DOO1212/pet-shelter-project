@@ -20,61 +20,77 @@
 				<div>
 					<form method="post">
 						<div>
-							<label for="publicNumber" class="form-label">공고번호</label> <input
+							<label for="publicNumber" class="form-label">공고번호</label>
+							<input
 								type="text" class="form-control" name="publicNumber"
 								id="publicNumber" aria-describedby="writerHelp"
-								value="${detail.publicNumber}">
+								value="${detail.publicNumber}" 
+								${detail != null ? 'disabled' : ''}>
 						</div>
 
 						<div>
-							<label for="breed" class="form-label">품종</label> <input
+							<label for="breed" class="form-label">품종</label>
+							<input
 								type="text" class="form-control" name="breed" id="breed"
-								aria-describedby="writerHelp" value="${detail.breed}">
+								aria-describedby="writerHelp" value="${detail.breed}"
+								${detail != null ? 'disabled' : ''}>
 						</div>
 
-						<label for="petGender" class="form-label">성별</label> <select
-							class="form-control form-select" name="petGender">
-							<option value="0" ${detail.petGender eq "0"?'selected':''}>남자</option>
-							<option value="1" ${detail.petGender eq "1"?'selected':''}>여자</option>
+						<label for="petGender" class="form-label">성별</label>
+						<select
+							class="form-control form-select" name="petGender"
+							${detail != null ? 'disabled' : ''}>
+							<option value="M" ${detail.petGender eq "M"?'selected':''}>남자</option>
+							<option value="F" ${detail.petGender eq "F"?'selected':''}>여자</option>
 						</select>
 
 
 						<label for="isNeutered" class="form-label">중성화여부</label> <select
 							class="form-control form-select" name="isNeutered">
-							<option value="0" ${detail.isNeutered eq '0'?'selected':''}>중성화완료</option>
-							<option value="1" ${detail.isNeutered eq '1'?'selected':''}>미중성화</option>
+							<option value="1" ${detail.isNeutered eq '1'?'selected':''}>중성화완료</option>
+							<option value="0" ${detail.isNeutered eq '0'?'selected':''}>미중성화</option>
 						</select>
 
 						<div>
-							<label for="age" class="form-label">나이</label> <input
+							<label for="age" class="form-label">나이</label>
+							<input
 								type="number" class="form-control" name="age" id="age"
-								aria-describedby="writerHelp" value="${detail.age}">
+								aria-describedby="writerHelp" value="${detail.age}"
+								${detail != null ? 'disabled' : ''}>
 						</div>
 
 						<div>
-							<label for="weight" class="form-label">체중</label> <input
+							<label for="weight" class="form-label">체중</label>
+							<input
 								type="number" class="form-control" name="weight" id="weight"
 								aria-describedby="writerHelp" value="${detail.weight}">
 						</div>
 
 						<div>
-							<label for="feature" class="form-label">특징</label> <input
+							<label for="feature" class="form-label">특징</label>
+							<input
 								type="text" class="form-control" name="feature" id="feature"
 								aria-describedby="writerHelp" value="${detail.feature}">
 						</div>
-
-						<label for="vaccination" class="form-label">접종여부</label> <select
-							class="form-control form-select" name="vaccination">
-							<option value="0" ${detail.vaccination eq '0'?'selected':''}>접종완료</option>
-							<option value="1" ${detail.vaccination eq '1'?'selected':''}>미접종</option>
-						</select>
-
-						<label for="isAdopted" class="form-label">입양여부</label> <select
-							class="form-control form-select" name="isAdopted">
-							<option value="0" ${detail.isAdopted eq '0'?'selected':''}>입양완료</option>
-							<option value="1" ${detail.isAdopted eq '1'?'selected':''}>입양대기</option>
-						</select>
-
+						
+						<div>
+							<label for="vaccination" class="form-label">접종상태</label>
+							<input
+								type="text" class="form-control" name="vaccination" id="vaccination"
+								aria-describedby="writerHelp" value="${detail.vaccination}">
+						</div>
+						
+						<div>
+							<label for="isAdopted" class="form-label">입양여부</label>
+							<select
+								class="form-control form-select" name="isAdopted">
+								<option value="1" ${detail.isAdopted eq '1'?'selected':''}>입양완료</option>
+								<option value="0" ${detail.isAdopted eq '0'?'selected':''}>입양대기</option>
+							</select>
+						</div>
+						
+						<br>
+						
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 				</div>
