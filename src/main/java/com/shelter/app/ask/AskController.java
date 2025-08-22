@@ -1,4 +1,4 @@
-package com.shelter.app.pet;
+package com.shelter.app.ask;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,35 +8,49 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shelter.app.member.MemberVO;
+
+import jakarta.servlet.http.HttpSession;
+
 @Controller
-@RequestMapping("/pet/*")
-public class PetController {
+@RequestMapping("/ask/*")
+public class AskController {
 	
 	@Autowired
-	private PetService petService;
+	private AskService askService;
 	
 	@GetMapping("list")
 	public void list(Model model) throws Exception {
-
-		model.addAttribute("list", petService.list());
+		
+		model.addAttribute("list", askService.list());
 	}
 	
 	@GetMapping("detail")
-	public void detail(PetVO petVO, Model model) throws Exception {
+	public void detail(AskVO askVO, Model model) throws Exception {
 		
-		model.addAttribute("detail", petService.detail(petVO));
+		model.addAttribute("detail", askService.detail(askVO));
 	}
-	
+
 	@GetMapping("add")
 	public String add() throws Exception {
 		
-		return "pet/pet_form";
+		return "ask/ask_form";
 	}
 	
 	@PostMapping("add")
-	public ModelAndView add(PetVO petVO, Model model) throws Exception {
+	public ModelAndView add(AskVO askVO, Model model, HttpSession session) throws Exception {
 		
-		int result = petService.insert(petVO);
+		MemberVO member = (MemberVO) session.getAttribute("member");
+		
+		if (member == null) {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("redirect:/member/login");
+			return mv;
+		}
+		
+		askVO.setMemberId(member.getMemberId());		
+		
+		int result = askService.insert(askVO);
 		
 		String msg = "등록 실패";
 		if (result > 0) {
@@ -53,17 +67,17 @@ public class PetController {
 	}
 	
 	@GetMapping("update")
-	public ModelAndView update(PetVO petVO, ModelAndView mv) throws Exception {
-		petVO = petService.detail(petVO);
+	public ModelAndView update(AskVO askVO, ModelAndView mv) throws Exception {
+		askVO = askService.detail(askVO);
 		
-		mv.addObject("detail", petVO);
-		mv.setViewName("pet/pet_form");
+		mv.addObject("detail", askVO);
+		mv.setViewName("ask/ask_form");
 		return mv;
 	}
 	
 	@PostMapping("update")
-	public String update(PetVO petVO, Model model) throws Exception {
-		int result = petService.update(petVO);
+	public String update(AskVO askVO, Model model) throws Exception {
+		int result = askService.update(askVO);
 		
 		String msg = "수정 실패";
 		if (result > 0) {
@@ -71,13 +85,13 @@ public class PetController {
 		}
 		
 		model.addAttribute("msg", msg);
-		model.addAttribute("url", "./detail?petId="+petVO.getPetId());
+		model.addAttribute("url", "./detail?askId="+askVO.getAskId());
 		return "commons/result";
 	}
 	
 	@PostMapping("delete")
-	public String delete(PetVO petVO, Model model) throws Exception {
-		int result = petService.delete(petVO);
+	public String delete(AskVO askVO, Model model) throws Exception {
+		int result = askService.delete(askVO);
 		String msg = "삭제 실패";
 		if (result>0) {
 			msg = "삭제 성공";
@@ -87,8 +101,4 @@ public class PetController {
 		model.addAttribute("url", "./list");
 		return "commons/result";
 	}
-	
-	
-	
-
 }

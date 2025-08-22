@@ -14,7 +14,7 @@
 
                     <p class="mb-4"> 상처 입은 아이들에게는 따뜻한 보금자리를, 당신에게는 세상 가장 소중한 친구를</p>
 
-                    <a href="/donation/list" target="_blank" class="btn btn-main mt-2">
+                    <a href="/pet/list" target="_blank" class="btn btn-main mt-2">
                         후원하러 가기 <i class="ti-angle-right ml-3"></i>
                     </a>
                 </div>

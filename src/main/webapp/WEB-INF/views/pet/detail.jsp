@@ -18,32 +18,34 @@
 
 			<h1>동물</h1>
 			<h2>동물번호 : ${detail.petId}</h2>
-			<h2>공고번호 : ${detail.publicNumber} </h2>
-			<h2>접수날짜 : ${detail.publicDate} </h2>
-			<h2>품종 : ${detail.breed} </h2>
-			<h2>성별 : ${detail.petGender} </h2>
-			<h2>중성화여부 : ${detail.isNeutered} </h2>
-			<h2>나이 : ${detail.age} </h2>
-			<h2>체중 : ${detail.weight} </h2>
-			<h2>특징 : ${detail.feature} </h2>
-			<h2>접종상태 : ${detail.vaccination} </h2>
-			<h2>입양여부 : ${detail.isAdopted} </h2>
-			
-			
-			<!-- passing7by 시작 -->
-			<br>
-			
-			<div class="row">
-				<form action="/member/bookmark/add" method="post">
-					<input type="hidden" name="petId" value="${detail.petId}">
-					<button class="btn btn-warning">즐겨찾기 추가</button>
-				</form>
-				<form action="/donation/widget" method="get" class="ml-4">
-					<input type="hidden" name="petId" value="${detail.petId}">
-					<button class="btn btn-success">후원하기</button>
+
+			<h2>공고번호 : ${detail.publicNumber}</h2>
+			<h2>접수날짜 : ${detail.publicDate}</h2>
+			<h2>품종 : ${detail.breed}</h2>
+			<h2>성별 : ${detail.petGender}</h2>
+			<h2>중성화여부 : ${detail.isNeutered}</h2>
+			<h2>나이 : ${detail.age}</h2>
+			<h2>체중 : ${detail.weight}</h2>
+			<h2>특징 : ${detail.feature}</h2>
+			<h2>접종상태 : ${detail.vaccination}</h2>
+			<h2>입양여부 : ${detail.isAdopted}</h2>
+
+			<div>
+				<a href="/donation/pay?petId=${petVO.petId}"><button class="btn btn-success">후원하기</button></a>
 				</form>
 			</div>
-			<!-- passing7by 끝 -->
+
+			<c:if
+				test="${not empty sessionScope.member.memberId == boardVO.memberId}">
+				<div>
+					<form action="./delete" method="post">
+						<input type="hidden" name="petId" value="${detail.petId}">
+						<a class="btn btn-success" href="./update?petId=${detail.petId}">Update</a>
+						<button class="btn btn-danger">Delete</button>
+					</form>
+				</div>
+			</c:if>
+
 			<!-- Contents 끝 -->
 		</div>
 	</section>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace의 이름은 사용하려는 DAO의 풀패키지명과 동일하게 작성 -->
+<mapper namespace="com.shelter.app.ask.AskDAO">
+
+	<resultMap type="AskVO" id="detailResult">
+
+		<id column="ask_id" property="askId" />
+
+		<result column="member_id" property="memberId" />
+		<result column="created_at" property="createdAt" />
+		<result column="updated_at" property="updatedAt" />
+
+	</resultMap>
+
+	<select id="list" resultType="AskVO">
+		SELECT * FROM ask ORDER BY ask_id
+		DESC;
+	</select>
+
+	<select id="detail" parameterType="AskVO"
+		resultMap="detailResult">
+		SELECT * FROM ask
+		WHERE ask.ask_id=#{askId};
+	</select>
+
+	<insert id="insert" parameterType="AskVO">
+		INSERT INTO ask(
+		ask_id,
+		member_id, title, content, created_at, updated_at
+		) VALUES (
+		NULL, #{memberId}, #{title}, #{content}, localtime(), NULL
+		)
+	</insert>
+
+	<update id="update" parameterType="AskVO">
+		UPDATE ask
+		SET
+		title=#{title},
+		content=#{content},
+		updated_at=localtime()
+		WHERE
+		ask_id=#{askId}
+	</update>
+
+	<delete id="delete" parameterType="AskVO">
+		DELETE FROM ask
+		WHERE
+		ask_id=#{askId}
+	</delete>
+
+</mapper>
